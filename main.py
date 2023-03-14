@@ -4,6 +4,7 @@ from classes.class_Request import Request
 from errors import BadInput
 
 
+
 store = Store(
     items={
         "печеньки": 25,
@@ -67,9 +68,15 @@ def main():
         """
         try:
             storages[request.departure].remove(request.product, request.amount)
+
             print(f'Курьер забрал {request.amount} {request.product} из {request.departure}')
         except:
             print("Ошибка доставки")
+        """
+        Если запрос верный создаем экземпляр класса реквест с запросом пользователя и словарем складов
+        в случае ошибки выдаем сообщение о неверном запросе и перезапускаем цикл 
+        """
+
 
 
 if __name__ == '__main__':
