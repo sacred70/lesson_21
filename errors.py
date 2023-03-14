@@ -8,3 +8,7 @@ class NotProduct(BaseException):
 
 class NotQuantityProduct(BaseException):
     message = 'Недостаточное количество товара!\n'
+
+
+class ShopFull(BaseException):
+    message = 'Магазин полон товара!\n'
