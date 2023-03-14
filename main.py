@@ -1,5 +1,7 @@
 from classes.class_Shop import Shop
 from classes.class_Store import Store
+from classes.class_Request import Request
+from errors import BadInput
 
 
 store = Store(
@@ -54,7 +56,14 @@ def main():
         """
         Проверяем на совпадение со стоп-словами и останавливаем если пользователь решил закончить
         """
-
+        try:
+            request = Request(request=user_input, storages=storages)
+        except BadInput:
+            print(BadInput.message)
+        """
+        Если запрос верный создаем экземпляр класса реквест с запросом пользователя и словарем складов
+        в случае ошибки выдаем сообщение о неверном запросе
+        """
 
 if __name__ == '__main__':
     main()
