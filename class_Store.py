@@ -2,7 +2,7 @@
 Шаг 2. Реализуйте класс Store. В нем хранится любое количество любых товаров.
 """
 
-from abstractstorage import Storage  # импортируем родительский абстрактный класс
+from class_Storage import Storage  # импортируем родительский абстрактный класс
 
 
 class Store(Storage):  # создаем класс наследуемый от абстрактного класса Storage

@@ -1,0 +1,2 @@
+class NotEnoughSpase:
+    pass
