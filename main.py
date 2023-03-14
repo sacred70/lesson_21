@@ -36,7 +36,7 @@ storages = \
 
 def main():
     print("\nДобрый день\n")
-    with True:
+    while True:
         for storage_name in storages:
             print(f'Сейчас в {storage_name}:\n {storages[storage_name].get_items()}')
         """
