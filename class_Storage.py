@@ -1,7 +1,7 @@
 """
 Шаг 1. Создайте абстрактный класс Storage.
 """
-from errors import NotEnoughSpase
+from errors import NotEnoughSpase, NotProduct, NotQuantityProduct
 """
 Импорт ошибок
 """
@@ -26,7 +26,7 @@ class Storage(Base):
         """
     def add(self, title: str, quantity: int) -> None:
         """
-        Метод add(<название>, <количество>) - увеличивает запас items
+        Метод add(<название>, <количество>) - увеличивает запас items (добавляет товар)
         """
         """
         Проверяем, хватает ди места на складе
@@ -39,13 +39,41 @@ class Storage(Base):
         """
         Возвращаем ошибку
         """
-        if
+        if title in self.__items:
+            self.__items[title] += quantity
+            """
+            Если такое название товар  в списке товаров, то увеличиваем его количество
+            """
+        else:
+            self.__items[title] = quantity
+            """
+            Иначе оставляем как есть то есть 0
+            """
 
     def remove(self, title: str, quantity: int) -> None:
         """
-        Метод remove(<название>, <количество>)-уменьшает запас items
+        Метод remove(<название>, <количество>)-уменьшает запас items (удаляет товар)
         """
-        pass
+        if title not in self.__items:
+            raise NotProduct
+        """
+        Проверяем наличие данной позиции товара на складе, если нет возвращаем ошибку
+        """
+        if self.__items[title] < quantity:
+            raise NotQuantityProduct
+        """
+        Проверяем на наличие товара, если меньше чем надо, выдаем ошибку
+        """
+        self.__items -= quantity
+        """
+        Вычитаем определенное количество товара
+        """
+        if self.__items[title] == 0:
+            del(self.__items[title])
+        """
+        Если товара осталось 0, удаляем этот товар из списка товаров (словаря) 
+        """
+
 
     def get_free_space(self):
         """
