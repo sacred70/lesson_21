@@ -5,7 +5,7 @@ from errors import NotEnoughSpase, NotProduct, NotQuantityProduct
 """
 Импорт ошибок
 """
-from base_class import Base
+from classes.base_class import Base
 """
 Импортируем абстрактный, родительский классов.
 """

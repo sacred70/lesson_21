@@ -1,8 +1,7 @@
 """
 Шаг 3. Реализуйте класс Shop.
 """
-
-from class_Storage import Storage  # импортируем родительский класс
+from classes.class_Storage import Storage  # импортируем родительский класс
 from errors import ShopFull  # импортируем ошибку
 
 
