@@ -57,21 +57,18 @@ def main():
         """
         Проверяем на совпадение со стоп-словами и останавливаем если пользователь решил закончить
         """
-        try:
-            request = Request(request=user_input, storages=storages)
-        except BadInput:
-            print(BadInput.message)
-            continue
+
+        request = Request(request=user_input, storages=storages)
+
         """
         Если запрос верный создаем экземпляр класса реквест с запросом пользователя и словарем складов
         в случае ошибки выдаем сообщение о неверном запросе и перезапускаем цикл 
         """
-        try:
-            storages[request.departure].remove(request.product, request.amount)
 
-            print(f'Курьер забрал {request.amount} {request.product} из {request.departure}')
-        except:
-            print("Ошибка доставки")
+        storages[request.departure].remove(request.product, request.amount)
+
+        print(f'Курьер забрал {request.amount} {request.product} из {request.departure}')
+
         """
         Если запрос верный создаем экземпляр класса реквест с запросом пользователя и словарем складов
         в случае ошибки выдаем сообщение о неверном запросе и перезапускаем цикл 
